@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add">Add Task</a>
+        <a href="/view">View Tasks</a>
+    </nav>
+    <h1>Task List</h1>
+    <ul>
+        <% taskList.forEach((task, i) => { %>
+            <li>
+                <strong><%= task.title %></strong>
+                <br>
+                <%= task.description %>
+                <br>
+                <a href="/edit/<%= i %>">Edit</a>
+                <a href="/map/<%= i %>">Task Map</a>
+            </li>
+        <% }) %>
+    </ul>
+
+</body>
+</html>

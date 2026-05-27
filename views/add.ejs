@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add">Add Task</a>
+        <a href="/view">View Tasks</a>
+    </nav>
+    <h1>Add Task</h1>
+    <form action="/add" method="POST">
+        <!-- Task Name -->
+        <div class="form-group">
+            <label for="task">Task:</label>
+            <input type="text" id="task" name="task" placeholder="Enter task..." required>
+        </div>
+        <!-- Task Description -->
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <br>
+            <textarea id="description" 
+                name="description" 
+                placeholder="Enter task description..." 
+                required>
+            </textarea>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit">Add Task</button>
+        <!-- Cancel Button -->
+        <button 
+            type="button" 
+            onclick="document.querySelector('form').reset(); 
+            window.location.href='/'">
+            Cancel
+        </button>
+    </form>
+</body>
+</html>

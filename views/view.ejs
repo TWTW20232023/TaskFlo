@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Task</title>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add">Add Task</a>
+        <a href="/view">View Tasks</a>
+    </nav>
+    <h1>All Tasks</h1>
+    <ul>
+        <% taskList.forEach((task, i) => { %>
+            <li>
+                <strong><%= task.title %></strong> - <%= task.description %>
+                <br>
+                <a href="/edit/<%= i %>">Edit</a>
+                <a href="/map/<%= i %>">Map</a>
+                <form action="/delete/<%= i %>" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/" style="display:inline-block; margin-top:20px;">
+        <button type="button">Back to Home</button>
+    </a>
+
+</body>
+</html>

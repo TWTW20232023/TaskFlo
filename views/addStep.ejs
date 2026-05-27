@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Step to Task</title>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add">Add Task</a>
+        <a href="/view">View Tasks</a>
+    </nav>
+    <h1><%= task.title %> - Add Step</h1>
+    <!-- Show task title and description -->
+    <p>
+        Description:
+        <br>
+        <%= task.description %>
+    </p>
+    <form action="/tasks/<%= taskIndex %>/steps/add" method="POST">
+    <!-- Step Title -->
+    <div class="form-group">
+           <label for="title">Step Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter step title..." required>
+    </div>
+    <!-- Step Note -->
+    <div class="form-group">
+        <label for="note">Note:</label><br>
+        <textarea id="note" name="note" placeholder="Enter step note..." required></textarea>
+    </div>
+    <!-- Step Progress -->
+    <div class="form-group">
+        <label for="progress">Progress:</label>
+        <input type="number" id="progress" name="progress" min="0" max="100" placeholder="Enter progress..." required>
+    </div>
+    <!-- Submit Button -->
+    <button type="submit">Add Step</button>
+    <!-- Cancel Button -->
+    <button type="button" onclick="window.location.href='/map/<%= taskIndex %>'">Cancel</button>
+    </form>
+</body>

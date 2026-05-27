@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Map</title>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add">Add Task</a>
+        <a href="/view">View Tasks</a>
+    </nav>
+
+    <h1>
+        Task: <%= task.title %> - Steps</h1>
+    <p>
+        Description:
+        <br>
+        <%= task.description %>
+    </p>
+
+    <h2>Steps</h2>
+    <ul>
+        <% if (task.steps.length === 0) { %>
+        <li>No steps yet.</li>
+        <% } else { %>
+        <% task.steps.forEach((step, i) => { %>
+            <li>
+                <strong><%= step.title %></strong> - <%= step.note %> (<%= step.progress %>%)
+                <br>
+                <a href="/tasks/<%= index %>/steps/edit/<%= i %>">Edit</a>
+                <form action="/tasks/<%= index %>/steps/delete/<%= i %>" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+        <% } %>
+    </ul>
+    <a href="/tasks/<%= index %>/steps/add">Add Step</a>
+    <br>
+    <a href="/view" style="display:inline-block; margin-top:20px;">
+        <button type="button">Back to Tasks</button>
+    </a>
+</body>
+</html>
